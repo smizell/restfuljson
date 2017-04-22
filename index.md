@@ -30,7 +30,7 @@ The JSON below shows a representation for an author.
             "url": "http://example.com/publishers/33",
             "name": "Book Publisher B"
         }
-    ]
+    ],
     "docs_url": "http://example.com/docs/author"
 }
 ```
