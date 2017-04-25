@@ -16,7 +16,7 @@ All URLs SHOULD conform to [RFC 3986](https://tools.ietf.org/html/rfc3986).
 
 ### Example
 
-The JSON below shows a representation for an author.
+The JSON below shows a representation for an article.
 
 ``` json
 {
