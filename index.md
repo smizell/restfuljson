@@ -1,8 +1,6 @@
 # RESTful JSON
 > Because adding links in JSON should be easy
 
-**Insert good introduction here**
-
 ## Specification
 
 For JSON formats conforming to [RFC 4627](https://tools.ietf.org/html/rfc4627),
@@ -109,9 +107,9 @@ servers and clients along the way.
 
 ### Including or Linking Data
 
-Clients SHOULD NOT expect for a property to be a response. Instead clients
-SHOULD check it's there before moving on. Additionally, a client should look for
-included data first before requesting a URL.
+Clients SHOULD NOT expect for a property to be in a response. Instead clients
+SHOULD check the property is there before moving on. Additionally, a client
+should look for included data first before requesting a URL.
 
 For example, if a client receives this response below, and it's look for a
 `book`, it should use the included `book` property.
