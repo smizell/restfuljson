@@ -20,7 +20,7 @@ The JSON below shows a representation for an article.
 {
     "url": "http://example.com/article/17",
     "title": "Article Title",
-    "body": "The body of the article."
+    "body": "The body of the article.",
     "author_urls": [
         "http://example.com/authors/42",
         "http://example.com/authors/75"
@@ -40,10 +40,12 @@ The JSON below shows a representation for an article.
 ```
 
 This example shows how `url` is used for an object for the article and
-categories, how it's used for a list of URLs with `author_urls`, and how it's used
-for a single URL with `docs_url`.
+categories, how it's used for a list of URLs with `author_urls`, and how it's
+used for a single URL with `docs_url` (which is an example of a way to point to
+documentation from within a response).
 
-As an API designer, you SHOULD document what these URLs mean.
+As an API designer, you SHOULD document what these URLs mean and any actions
+related to them and reference the documentation in the response.
 
 ## Usage
 
@@ -95,6 +97,9 @@ APIs in a similar way.
 
 - [GitHub API](https://developer.github.com/v3/)
 - [Strip API](https://stripe.com/docs/api)
+- [Medium API](https://github.com/Medium/medium-api-docs)
+- [Basecamp API](https://github.com/basecamp/bc3-api)
+- [Trello API](https://developers.trello.com/advanced-reference)
 
 The [Django REST Framework](http://www.django-rest-framework.org) also includes
 URLs when using their hyperlinked serializers.
@@ -128,7 +133,7 @@ However, if the client does not find the `book` property, it SHOULD look for the
 
 ``` json
 {
-    "book_url": "http://example.com/books/413"
+    "book_url": "..."
 }
 ```
 
@@ -142,7 +147,7 @@ has permission to mark it complete.
 ``` json
 {
     "title": "Get milk",
-    "mark_complete_url": "http://example.com/todos/4/mark-complete"
+    "mark_complete_url": "..."
 }
 ```
 
@@ -154,7 +159,7 @@ this.
 ``` json
 {
     "title": "Get milk",
-    "mark_incomplete_url": "http://example.com/todos/4/mark-incomplete"
+    "mark_incomplete_url": "..."
 }
 ```
 
