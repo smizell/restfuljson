@@ -70,14 +70,13 @@ included in the API responses.
 
 ### API Consumers (Client-Side)
 
-**At design time**, the client SHOULD NOT hardcode any URLs or URL patterns and
-SHOULD NOT ascribe any meaning to the contents of a URL.
+**At build time**, the client SHOULD NOT include logic for constructing URLs.
+Rather, the client SHOULD use URLs provided by the server at runtime.
 
 **At runtime**, the client SHOULD use the URLs in API responses for retrieving
-resources. The client SHOULD rely on the URLs to know what it can or cannot do
-at runtime, allowing the server to retain all logic for what a client may or may
-not do in a given context. The client SHOULD ignore any URLs it was not designed
-to use, allowing the server and client to evolve over time.
+resources. The client SHOULD rely on the presence or absence of URLs to know
+what it can or cannot do at runtime. The client SHOULD ignore any URLs it was
+not designed to use, allowing the server and client to evolve over time.
 
 ## Influences
 
@@ -97,7 +96,7 @@ URLs when using their hyperlinked serializers.
 
 This document was authored
 by [Stephen Mizell](https://twitter.com/Stephen_Mizell)
-and [Mark Foster](https://twitter.com/fosrias) in an effort to lower the barrier
+and [Mark W. Foster](https://twitter.com/fosrias) in an effort to lower the barrier
 to entry for building hypermedia APIs. This document is licensed under the MIT
 license. The requirements here conform
 to [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
