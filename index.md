@@ -7,11 +7,12 @@ expressive and evolvable APIs.
 ## Specification
 
 For JSON formats conforming to [RFC 4627](https://tools.ietf.org/html/rfc4627),
-follow the following guidelines.
+apply the following guidelines:
 
-1. JSON objects MAY include a `url` property for a link to itself
-2. JSON objects MAY append `_url` to properties for related links
-3. JSON objects MAY append `_urls` to properties for lists of related links
+1. JSON objects MAY include a `url` property to indicate a link to itself
+2. JSON objects MAY append `_url` to properties to indicate related links
+3. JSON objects MAY append `_urls` to properties to indicate lists of related
+   links
 
 All URLs SHOULD conform to [RFC 3986](https://tools.ietf.org/html/rfc3986). API
 providers MAY use camel case rather than snake case where applicable.
@@ -55,7 +56,7 @@ them, and reference the documentation in the response.
 
 ### API Providers (Server-Side)
 
-At design time, all URLs that comply with the specification above SHOULD be
+**At design time**, all URLs that comply with the specification above SHOULD be
 documented. API providers SHOULD consider adding the note below to their
 documentation to describe how URLs are used.
 
@@ -64,15 +65,15 @@ documentation to describe how URLs are used.
 > itself, MAY append `_url` to properties for related links, and MAY append
 > `_urls` to properties for lists of related links.
 
-At runtime, only URLs the client is allowed to invoke or interact with SHOULD be
+**At runtime**, only URLs the client is allowed to invoke or interact with SHOULD be
 included in the API responses. 
 
 ### API Consumers (Client-Side)
 
-At design time, the client SHOULD NOT have any URLs hardcoded, and it SHOULD NOT
-hardcode any URL patterns.
+**At design time**, the client SHOULD NOT hardcode any URLs or URL patterns and
+SHOULD NOT ascribe any meaning to the contents of a URL.
 
-At runtime, the client SHOULD use the URLs in the API responses for retrieving
+**At runtime**, the client SHOULD use the URLs in API responses for retrieving
 resources. The client SHOULD rely on the URLs to know what it can or cannot do
 at runtime, allowing the server to retain all logic for what a client may or may
 not do in a given context. The client SHOULD ignore any URLs it was not designed
