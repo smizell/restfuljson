@@ -71,7 +71,6 @@ included in the API responses.
 ### API Consumers (Client-Side)
 
 **At build time**, the client SHOULD NOT include logic for constructing URLs.
-Rather, the client SHOULD use URLs provided by the server at runtime.
 
 **At runtime**, the client SHOULD use the URLs in API responses for retrieving
 resources. The client SHOULD rely on the presence or absence of URLs to know
