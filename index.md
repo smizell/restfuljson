@@ -44,7 +44,7 @@ categories, how it's used for a link to an author with `author_url`, and how
 it's used to link to documentation with `docs_url` (which is an example of a way
 to point to documentation from within a response).
 
-The API provider SHOULD document what these link keys mean, any actions related to
+The API provider SHOULD document what these links mean, any actions related to
 them, and reference the documentation in the response.
 
 ## Usage and Guidelines
