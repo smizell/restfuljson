@@ -1,7 +1,7 @@
 # RESTful JSON
 > Because adding links in JSON should be easy
 
-RESTful JSON is a minimal and pragmatic specification for using URLs to build
+RESTful JSON is a minimal and pragmatic specification for using links to build
 expressive and evolvable APIs.
 
 ## Specification
@@ -11,8 +11,6 @@ apply the following guidelines:
 
 1. JSON objects MAY include a `url` property to indicate a link to itself
 2. JSON objects MAY append `_url` to properties to indicate related links
-3. JSON objects MAY append `_urls` to properties to indicate lists of related
-   links
 
 All URLs SHOULD conform to [RFC 3986](https://tools.ietf.org/html/rfc3986). API
 providers MAY use camel case rather than snake case where applicable.
@@ -26,10 +24,7 @@ The JSON below shows a representation for an article.
     "url": "http://example.com/article/17",
     "title": "Article Title",
     "body": "The body of the article.",
-    "author_urls": [
-        "http://example.com/authors/42",
-        "http://example.com/authors/75"
-    ],
+    "author_url": "http://example.com/authors/42",
     "categories": [
         {
             "url": "http://example.com/categories/29",
@@ -45,51 +40,50 @@ The JSON below shows a representation for an article.
 ```
 
 This example shows how the `url` is used for an object for the article and
-categories, how it's used for a list of URLs with `author_urls`, and how it's
-used for a single URL with `docs_url` (which is an example of a way to point to
-documentation from within a response).
+categories, how it's used for a link to an author with `author_url`, and how
+it's used to link to documentation with `docs_url` (which is an example of a way
+to point to documentation from within a response).
 
-The API provider SHOULD document what these URLs mean, any actions related to
+The API provider SHOULD document what these link keys mean, any actions related to
 them, and reference the documentation in the response.
 
 ## Usage and Guidelines
 
 ### API Providers (Server-Side)
 
-**At design time**, all URLs that comply with the specification above SHOULD be
+**At design time**, all links that comply with the specification above SHOULD be
 documented. API providers SHOULD consider adding the note below to their
-documentation to describe how URLs are used.
+documentation to describe how links are used.
 
-> This API uses [RESTful JSON](https://restfuljson.org) by including URLs in the
+> This API uses [RESTful JSON](https://restfuljson.org) by including links in the
 > responses. Objects in this API MAY include a `url` property for a link to
-> itself, MAY append `_url` to properties for related links, and MAY append
-> `_urls` to properties for lists of related links.
+> itself and MAY append `_url` to properties for related links.
 
-**At runtime**, only URLs the client is allowed to invoke or interact with SHOULD be
+**At runtime**, only links the client is allowed to invoke or interact with SHOULD be
 included in the API responses. 
 
 ### API Consumers (Client-Side)
 
 **At build time**, the client SHOULD NOT include logic for constructing URLs.
 
-**At runtime**, the client SHOULD use the URLs in API responses for retrieving
-resources. The client SHOULD rely on the presence or absence of URLs to know
-what it can or cannot do at runtime. The client SHOULD ignore any URLs it was
+**At runtime**, the client SHOULD use the links in API responses for retrieving
+resources. The client SHOULD rely on the presence or absence of links to know
+what it can or cannot do at runtime. The client SHOULD ignore any links it was
 not designed to use, allowing the server and client to evolve over time.
 
 ## Influences
 
-This document is influenced by APIs that have pragmatically added URLs to their
+This document is influenced by APIs that have pragmatically added links to their
 APIs in a similar way.
 
 - [GitHub API](https://developer.github.com/v3/)
-- [Strip API](https://stripe.com/docs/api)
+- [Stripe API](https://stripe.com/docs/api)
 - [Medium API](https://github.com/Medium/medium-api-docs)
 - [Basecamp API](https://github.com/basecamp/bc3-api)
 - [Trello API](https://developers.trello.com/advanced-reference)
 
 The [Django REST Framework](http://www.django-rest-framework.org) also includes
-URLs when using their hyperlinked serializers.
+links when using their hyperlinked serializers.
 
 ## About
 
