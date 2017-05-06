@@ -64,7 +64,8 @@ included in the API responses.
 
 ### API Consumers (Client-Side)
 
-**At build time**, the client SHOULD NOT include logic for constructing URLs.
+**At build time**, the client SHOULD NOT include logic for parsing or
+de-constructing URLs.
 
 **At runtime**, the client SHOULD use the links in API responses for retrieving
 resources. The client SHOULD rely on the presence or absence of links to know
