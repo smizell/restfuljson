@@ -1,10 +1,10 @@
 # RESTful JSON
 > Because adding links in JSON should be easy
 
-RESTful JSON is a minimal and pragmatic specification for using links to build
+RESTful JSON is a minimal and pragmatic design pattern for using links to build
 expressive and evolvable APIs.
 
-## Specification
+## Overview
 
 For JSON formats conforming to [RFC 4627](https://tools.ietf.org/html/rfc4627),
 apply the following guidelines:
@@ -44,15 +44,15 @@ categories, how it's used for a link to an author with `author_url`, and how
 it's used to link to documentation with `docs_url` (which is an example of a way
 to point to documentation from within a response).
 
-The API provider SHOULD document what these links mean, any actions related to
-them, and reference the documentation in the response.
+The API provider SHOULD document what each link means, any and all actions and
+methods related to the links, and reference the documentation in the response.
 
 ## Usage and Guidelines
 
 ### API Providers (Server-Side)
 
-**At design time**, all links that comply with the specification above SHOULD be
-documented. API providers SHOULD consider adding the note below to their
+**At design time**, all links that comply with the recommendations above SHOULD
+be documented. API providers SHOULD consider adding the note below to their
 documentation to describe how links are used.
 
 > This API uses [RESTful JSON](https://restfuljson.org) by including links in the
