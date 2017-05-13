@@ -35,7 +35,7 @@ The JSON below shows a representation for an article.
             "name": "Category B"
         }
     ],
-    "docs_url": "http://example.com/docs/article "
+    "docs_url": "http://example.com/docs/article"
 }
 ```
 
@@ -50,25 +50,25 @@ referencing documentation with a `docs_url` link.
 **At design time**, all links that comply with the recommendations above SHOULD be 
 documented indicating what each link means including any and all associated methods, 
 query parameters, [RFC 6570](https://tools.ietf.org/html/rfc6570) URI templates and body
-properties.
+properties. 
 
-API providers SHOULD reference the documentation in the response and consider adding the note
-below to their documentation to describe how links are used.
+API providers SHOULD consider adding the note below to their documentation to describe how links are used.
 
 > This API uses [RESTful JSON](https://restfuljson.org) by including links in the responses 
 > to guide client interactions. Objects in this API MAY include a `url` property for a 
 > link to itself and MAY append `_url` to properties for related links.
 
-**At runtime**, only links a client is allowed to interact with SHOULD be included in API
+API providers SHOULD reference the documentation in a response.
+
+**At runtime**, only links a client is allowed to interact with SHOULD be present in API
 responses. If multiple methods are associated with a particular link, they MUST all be 
-allowed if the link is included. In general, a _one-to-one_ relationship SHOULD exist 
-between links and methods.
+allowed if the link is present.
 
 ### API Consumers (Client-Side)
 
 **At build time**, the client SHOULD NOT infer any meaning from nor hard-code any expectation 
 of a link's URL structure. A client MAY introspect link URLs to populate documented query
-parameters and/or URI templates.
+parameters or URI templates.
 
 **At runtime**, the client SHOULD use links in API responses for interacting with resources.
 The client SHOULD rely on the presence or absence of links to know what it can or cannot
