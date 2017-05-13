@@ -21,7 +21,7 @@ The JSON below shows a representation for an article.
 
 ``` json
 {
-    "url": "http://example.com/article/17",
+    "url": "http://example.com/articles/17",
     "title": "Article Title",
     "body": "The body of the article.",
     "author_url": "http://example.com/authors/42",
@@ -35,62 +35,65 @@ The JSON below shows a representation for an article.
             "name": "Category B"
         }
     ],
-    "docs_url": "http://example.com/docs/article"
+    "docs_url": "http://example.com/docs/article "
 }
 ```
 
-This example shows how the `url` is used for an object for the article and
-categories, how it's used for a link to an author with `author_url`, and how
-it's used to link to documentation with `docs_url` (which is an example of a way
-to point to documentation from within a response).
-
-The API provider SHOULD document what each link means, any and all actions and
-methods related to the links, and reference the documentation in the response.
+This example demonstrates using `url` in an article resource object and included 
+categories, associating a related author resource with an `author_url` link, and
+referencing documentation with a `docs_url` link.
 
 ## Usage and Guidelines
 
 ### API Providers (Server-Side)
 
-**At design time**, all links that comply with the recommendations above SHOULD
-be documented. API providers SHOULD consider adding the note below to their
-documentation to describe how links are used.
+**At design time**, all links that comply with the recommendations above SHOULD be 
+documented indicating what each link means including any and all associated methods, 
+query parameters, [RFC 6570](https://tools.ietf.org/html/rfc6570) URI templates and body
+properties.
 
-> This API uses [RESTful JSON](https://restfuljson.org) by including links in the
-> responses. Objects in this API MAY include a `url` property for a link to
-> itself and MAY append `_url` to properties for related links.
+API providers SHOULD reference the documentation in the response and consider adding the note
+below to their documentation to describe how links are used.
 
-**At runtime**, only links the client is allowed to invoke or interact with SHOULD be
-included in the API responses. 
+> This API uses [RESTful JSON](https://restfuljson.org) by including links in the responses 
+> to guide client interactions. Objects in this API MAY include a `url` property for a 
+> link to itself and MAY append `_url` to properties for related links.
+
+**At runtime**, only links a client is allowed to interact with SHOULD be included in API
+responses. If multiple methods are associated with a particular link, they MUST all be 
+allowed if the link is included. In general, a _one-to-one_ relationship SHOULD exist 
+between links and methods.
 
 ### API Consumers (Client-Side)
 
-**At build time**, the client SHOULD NOT include logic for parsing or
-de-constructing URLs.
+**At build time**, the client SHOULD NOT infer any meaning from nor hard-code any expectation 
+of a link's URL structure. A client MAY introspect link URLs to populate documented query
+parameters and/or URI templates.
 
-**At runtime**, the client SHOULD use the links in API responses for retrieving
-resources. The client SHOULD rely on the presence or absence of links to know
-what it can or cannot do at runtime. The client SHOULD ignore any links it was
-not designed to use, allowing the server and client to evolve over time.
+**At runtime**, the client SHOULD use links in API responses for interacting with resources.
+The client SHOULD rely on the presence or absence of links to know what it can or cannot
+do at runtime. The client SHOULD ignore any resource links or properties it was not designed
+to use, allowing the server and client to evolve independently over time.
 
 ## Influences
 
 This document is influenced by APIs that have pragmatically added links to their
-APIs in a similar way.
-
-- [GitHub API](https://developer.github.com/v3/)
-- [Stripe API](https://stripe.com/docs/api)
-- [Medium API](https://github.com/Medium/medium-api-docs)
-- [Basecamp API](https://github.com/basecamp/bc3-api)
-- [Trello API](https://developers.trello.com/advanced-reference)
-
-The [Django REST Framework](http://www.django-rest-framework.org) also includes
-links when using their hyperlinked serializers.
+APIs in a similar way: [GitHub API][github], [Stripe API][stripe], [Medium API][medium], [Basecamp API][basecamp], [Trello API][trello] and [Django REST Framework][django].
 
 ## About
 
 This document was authored
 by [Stephen Mizell](https://twitter.com/Stephen_Mizell)
 and [Mark W. Foster](https://twitter.com/fosrias) in an effort to lower the barrier
-to entry for building hypermedia APIs. This document is licensed under the MIT
-license. The requirements here conform
+to entry for implementing and consuming hypermedia APIs. This document is licensed 
+under the MIT license. The requirements here conform
 to [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
+RESTful JSON on [GitHub](https://github.com/smizell/restfuljson).
+
+[github]: https://developer.github.com/v3/
+[stripe]: https://stripe.com/docs/api
+[medium]: https://github.com/Medium/medium-api-docs
+[basecamp]: https://github.com/basecamp/bc3-api
+[trello]: https://developers.trello.com/advanced-reference
+[django]: http://www.django-rest-framework.org/tutorial/5-relationships-and-hyperlinked-apis/
