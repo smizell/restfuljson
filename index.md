@@ -71,7 +71,7 @@ of a link's URL structure. A client MAY introspect link URLs to populate documen
 parameters or URI templates.
 
 **At runtime**, the client SHOULD use links in API responses for interacting with resources.
-The client SHOULD rely on the presence or absence of links to know what it MAY or MAY NOT
+The client SHOULD rely on the presence or absence of links to know what it may or may not
 do at runtime. The client SHOULD ignore any resource links or properties it was not designed
 to use, allowing the server and client to evolve independently over time.
 
