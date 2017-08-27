@@ -1,12 +1,17 @@
-# RESTful JSON
-> Because adding links in JSON should be easy
+---
+layout: default
+---
 
+<div class="tagline f3 mb4">
+<p>
 RESTful JSON is a minimal and pragmatic design pattern for using links to build
 expressive and evolvable APIs.
+</p>
+</div>
 
 ## Overview
 
-For JSON formats conforming to [RFC 4627](https://tools.ietf.org/html/rfc4627),
+For JSON formats conforming to [RFC 7159](https://tools.ietf.org/html/rfc7159),
 apply the following guidelines:
 
 1. JSON objects MAY include a `url` property to indicate a link to itself
@@ -21,21 +26,21 @@ The JSON below shows a representation for an article.
 
 ``` json
 {
-    "url": "http://example.com/articles/17",
+    "url": "/articles/17",
     "title": "Article Title",
     "body": "The body of the article.",
-    "author_url": "http://example.com/authors/42",
+    "author_url": "/authors/42",
     "categories": [
         {
-            "url": "http://example.com/categories/29",
+            "url": "/categories/29",
             "name": "Category A"
         },
         {
-            "url": "http://example.com/categories/33",
+            "url": "/categories/33",
             "name": "Category B"
         }
     ],
-    "docs_url": "http://example.com/docs/article"
+    "docs_url": "/docs/article"
 }
 ```
 
@@ -54,7 +59,7 @@ properties.
 
 API providers SHOULD consider adding the note below to their documentation to describe how links are used.
 
-> This API uses [RESTful JSON](https://restfuljson.org) by including links in the responses 
+> This API uses [RESTful JSON](http://restfuljson.org) by including links in the responses 
 > to guide client interactions. Objects in this API MAY include a `url` property for a 
 > link to itself and MAY append `_url` to properties for related links.
 
@@ -77,7 +82,7 @@ to use, allowing the server and client to evolve independently over time.
 
 ## Influences
 
-This document is influenced by APIs that have pragmatically added links to their
+This document is influenced by APIs and tools that have pragmatically added links to their
 APIs in a similar way: [GitHub API][github], [Stripe API][stripe], [Medium API][medium], [Basecamp API][basecamp], [Trello API][trello] and [Django REST Framework][django].
 
 ## About
@@ -88,8 +93,6 @@ and [Mark W. Foster](https://twitter.com/fosrias) in an effort to lower the barr
 to entry for implementing and consuming hypermedia APIs. This document is licensed 
 under the MIT license. The requirements here conform
 to [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
-
-RESTful JSON on [GitHub](https://github.com/smizell/restfuljson).
 
 [github]: https://developer.github.com/v3/
 [stripe]: https://stripe.com/docs/api

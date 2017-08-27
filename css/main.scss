@@ -1,0 +1,25 @@
+---
+---
+
+@import 'tachyons';
+
+body {
+    @extend .sans-serif;
+}
+
+p, li {
+    @extend .lh-copy;
+}
+
+pre {
+    @extend .f6;
+    @extend .pa3;
+    @extend .lh-copy;
+    overflow: scroll;
+}
+
+code.highlighter-rouge {
+    @extend .bg-light-gray;
+}
+
+
