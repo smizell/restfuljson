@@ -1,0 +1,20 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    {% if page.title == "Home" %}
+      {{ site.title }} &middot; {{ site.tagline }}
+    {% else %}
+      {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/styles.css">
+  <meta name="description" content="RESTful JSON is a minimal and pragmatic design pattern for using links to build expressive and evolvable APIs.">
+  <link rel="canonical" href="http://restfuljson.org">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="http://restfuljson.org" />
+  <meta name="twitter:title" content="RESTful JSON" />
+  <meta name="twitter:description" content="A minimal and pragmatic design pattern for using links to build expressive and evolvable APIs." />
+</head>
