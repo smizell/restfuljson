@@ -2,11 +2,8 @@
 layout: default
 ---
 
-<div class="tagline f3 mb4">
-<p>
-RESTful JSON is a minimal and pragmatic design pattern for using links to build
-expressive and evolvable APIs.
-</p>
+<div class="tagline">
+RESTful JSON is a minimal and pragmatic design pattern for using links to build expressive and evolvable APIs.
 </div>
 
 ## Overview
@@ -93,6 +90,9 @@ and [Mark W. Foster](https://twitter.com/fosrias) in an effort to lower the barr
 to entry for implementing and consuming hypermedia APIs. This document is licensed 
 under the MIT license. The requirements here conform
 to [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+
+RESTful JSON can be found on [GitHub](https://github.com/smizell/restfuljson).
+
 
 [github]: https://developer.github.com/v3/
 [stripe]: https://stripe.com/docs/api
