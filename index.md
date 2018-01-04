@@ -18,6 +18,8 @@ apply the following guidelines:
 All URLs SHOULD conform to [RFC 3986](https://tools.ietf.org/html/rfc3986). API
 providers MAY use camel case rather than snake case where applicable.
 
+The media type for RESTful JSON is `application/vnd.restful+json`.
+
 ### Example
 
 The JSON below shows a representation for an article.
@@ -77,13 +79,6 @@ parameters or URI templates.
 The client SHOULD rely on the presence or absence of links to know what it may or may not
 do at runtime. The client SHOULD ignore any resource links or properties it was not designed
 to use, allowing the server and client to evolve independently over time.
-
-## Media Type
-
-The media type for RESTful JSON is `application/vnd.restful+json`.
-Clients that support the RESTful JSON media type MAY determine the links for a
-given response by filtering the properties in the JSON object ending in `_url`
-or `Url`, depending on the use of snake case or camel case respectively.
 
 ## Influences
 
