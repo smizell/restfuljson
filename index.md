@@ -38,7 +38,7 @@ The JSON below shows a representation for an article.
             "name": "Category B"
         }
     ],
-    "docs_url": "/docs/article"
+    "profile_url": "/docs/article"
 }
 ```
 
@@ -78,6 +78,19 @@ The client SHOULD rely on the presence or absence of links to know what it may o
 do at runtime. The client SHOULD ignore any resource links or properties it was not designed
 to use, allowing the server and client to evolve independently over time.
 
+## Media Type
+
+RESTful JSON provides a media type that MAY be used to provide runtime
+discoverability. The **proposed** media type is `application/vnd.restfuljson`.
+
+API consumers that support the RESTful JSON media type MAY determine the links
+for a given response by filtering the properties in the JSON object ending in
+`_url` or `Url`, depending on the use of snake case or camel case respectively.
+
+API providers SHOULD include a profile link conforming to [RFC 6906][rfc6906]
+to provide semantic information about the response. The profile link SHOULD be
+in the response body as either `profile_url` or `profileUrl`.
+
 ## Influences
 
 This document is influenced by APIs and tools that have pragmatically added links to their
@@ -101,3 +114,4 @@ RESTful JSON can be found on [GitHub](https://github.com/smizell/restfuljson).
 [basecamp]: https://github.com/basecamp/bc3-api
 [trello]: https://developers.trello.com/advanced-reference
 [django]: http://www.django-rest-framework.org/tutorial/5-relationships-and-hyperlinked-apis/
+[rfc6906]: https://tools.ietf.org/html/rfc6906
