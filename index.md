@@ -81,7 +81,7 @@ to use, allowing the server and client to evolve independently over time.
 ## Media Type
 
 RESTful JSON provides a media type that MAY be used to provide runtime
-discoverability. The **proposed** media type is `application/vnd.restfuljson`.
+discoverability. The **proposed** media type is `application/vnd.restful+json`.
 
 API consumers that support the RESTful JSON media type MAY determine the links
 for a given response by filtering the properties in the JSON object ending in
