@@ -83,13 +83,9 @@ to use, allowing the server and client to evolve independently over time.
 RESTful JSON provides a media type that MAY be used to provide runtime
 discoverability. The **proposed** media type is `application/vnd.restful+json`.
 
-API consumers that support the RESTful JSON media type MAY determine the links
-for a given response by filtering the properties in the JSON object ending in
-`_url` or `Url`, depending on the use of snake case or camel case respectively.
-
-API providers SHOULD include a profile link conforming to [RFC 6906][rfc6906]
-to provide semantic information about the response. The profile link SHOULD be
-in the response body as either `profile_url` or `profileUrl`.
+Clients that support the RESTful JSON media type MAY determine the links for a
+given response by filtering the properties in the JSON object ending in `_url`
+or `Url`, depending on the use of snake case or camel case respectively.
 
 ## Influences
 
