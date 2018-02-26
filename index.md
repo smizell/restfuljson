@@ -9,14 +9,17 @@ RESTful JSON is a minimal and pragmatic design pattern for using links to build 
 
 ## Overview
 
-For JSON formats conforming to [RFC 7159](https://tools.ietf.org/html/rfc7159),
-apply the following guidelines:
+For JSON formats conforming to [RFC 7159][], apply the following guidelines:
 
 1. JSON objects MAY include a `url` property to indicate a link to itself
 2. JSON objects MAY append `_url` to properties to indicate related links
 
-All URLs SHOULD conform to [RFC 3986](https://tools.ietf.org/html/rfc3986). API
-providers MAY use camel case rather than snake case where applicable. The media
+All URLs SHOULD conform to [RFC 3986][]. API providers MAY use camel case rather
+than snake case where applicable. A profile link conforming to [RFC 6906][], as
+indicated with either a property name of `profile_url` or `profileUrl`, MAY be used to link to
+additional documentation about the resource.
+
+The media
 type `application/vnd.restful+json` has been registered for this design pattern.
 
 ### Example
@@ -102,3 +105,6 @@ RESTful JSON can be found on [GitHub](https://github.com/smizell/restfuljson).
 [basecamp]: https://github.com/basecamp/bc3-api
 [trello]: https://developers.trello.com/advanced-reference
 [django]: http://www.django-rest-framework.org/tutorial/5-relationships-and-hyperlinked-apis/
+[RFC 6906]: https://tools.ietf.org/html/rfc6906
+[RFC 7159]: https://tools.ietf.org/html/rfc7159
+[RFC 3986]: https://tools.ietf.org/html/rfc3986
