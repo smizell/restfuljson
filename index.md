@@ -42,7 +42,7 @@ The JSON below shows a representation for an article.
             "name": "Category B"
         }
     ],
-    "docs_url": "/docs/article"
+    "profile_url": "http://example.com/profile/article"
 }
 ```
 
