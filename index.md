@@ -16,7 +16,8 @@ apply the following guidelines:
 2. JSON objects MAY append `_url` to properties to indicate related links
 
 All URLs SHOULD conform to [RFC 3986](https://tools.ietf.org/html/rfc3986). API
-providers MAY use camel case rather than snake case where applicable.
+providers MAY use camel case rather than snake case where applicable. The media
+type `application/vnd.restful+json` has been registered for this design pattern.
 
 ### Example
 
