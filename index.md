@@ -13,6 +13,7 @@ For JSON formats conforming to [RFC 7159][], apply the following guidelines:
 
 1. JSON objects MAY include a `url` property to indicate a link to itself
 2. JSON objects MAY append `_url` to properties to indicate related links
+3. JSON objects MAY append `_urls` to properties to indicate an array of related links
 
 All URLs SHOULD conform to [RFC 3986][]. API providers MAY use camel case rather
 than snake case where applicable. A profile link conforming to [RFC 6906][], as
@@ -28,27 +29,29 @@ The JSON below shows a representation for an article.
 
 ``` json
 {
-    "url": "/articles/17",
-    "title": "Article Title",
-    "body": "The body of the article.",
-    "author_url": "/authors/42",
-    "categories": [
-        {
-            "url": "/categories/29",
-            "name": "Category A"
-        },
-        {
-            "url": "/categories/33",
-            "name": "Category B"
-        }
-    ],
-    "profile_url": "http://example.com/profile/article"
+  "url": "http://example.com/customers/777",
+  "first_name": "John",
+  "last_name": "Doe",
+  "orders": [
+    {
+      "url": "http://example.com/orders/23222",
+      "order_num": "43341",
+      "total": "398.55",
+      "currency": "USD",
+      "address_url": "http://example.com/addresses/337474",
+      "product_urls": [
+        "http://example.com/product/12359",
+        "http://example.com/product/3124",
+        "http://example.com/product/98351"
+      ]
+    }
+  ],
+  "profile_url": "http://example.com/profile/customer"
 }
 ```
 
-This example demonstrates using `url` in an article resource object and included 
-categories, associating a related author resource with an `author_url` link, and
-referencing documentation with a `docs_url` link.
+This example demonstrates using `url` in a customer resource object and included 
+`orders`. Each order has a linked address as `address_url` and linked products under `product_urls`. The `profile_url` links to more documentation for a customer resource.
 
 ## Usage and Guidelines
 
