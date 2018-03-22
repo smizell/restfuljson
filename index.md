@@ -48,7 +48,7 @@ The JSON below shows a representation for an article.
 
 This example demonstrates using `url` in an article resource object and included 
 categories, associating a related author resource with an `author_url` link, and
-referencing documentation with a `docs_url` link.
+referencing documentation with a `profile_url` link.
 
 ## Usage and Guidelines
 
