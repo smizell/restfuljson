@@ -65,6 +65,14 @@ API providers SHOULD consider adding the note below to their documentation to de
 > to guide client interactions. Objects in this API MAY include a `url` property for a 
 > link to itself and MAY append `_url` to properties for related links.
 
+Ready-made [Markdown](https://en.wikipedia.org/wiki/Markdown):
+
+```markdown
+This API uses [RESTful JSON](http://restfuljson.org) by including links in the responses 
+to guide client interactions. Objects in this API MAY include a `url` property for a 
+link to itself and MAY append `_url` to properties for related links.
+```
+
 API providers SHOULD reference the documentation in a response.
 
 **At runtime**, only links a client is allowed to interact with SHOULD be present in API
